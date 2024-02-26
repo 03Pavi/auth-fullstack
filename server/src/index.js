@@ -2,7 +2,7 @@ const express = require("express");
 const userRouter = require("./routes/user.router.js");
 const cookieParser = require("cookie-parser");
 const app = express();
-const PORT = 8080;
+const PORT = 8081;
 const connectDB = require("./config/db.js");
 connectDB();
 app.use(express.json());

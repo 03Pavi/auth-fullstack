@@ -1,7 +1,9 @@
-const SECRET = "asdfghjkl";
+const dotenv = require("dotenv");
 const UserModel = require("../model/user.js");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+dotenv.config();
+const SECRET = process.env.SECRET;
 const signupController = async (req, res) => {
   try {
     const { username, password } = req.body;

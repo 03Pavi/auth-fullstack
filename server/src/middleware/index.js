@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken");
-const SECRET = "asdfghjkl";
+const dotenv = require("dotenv");
+dotenv.config();
+const SECRET = process.env.SECRET;
 const isAuthorised = async (req, res, next) => {
   const { token } = req.cookies;
   if (!token) {
