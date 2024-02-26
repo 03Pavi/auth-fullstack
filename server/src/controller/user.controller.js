@@ -70,12 +70,13 @@ const signinController = async (req, res) => {
     const token = jwt.sign({ id: ifUser._id }, SECRET, { expiresIn: "2h" });
     const options = {
       expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
-      httpOnly: true, //only server an manipulate
+      httpOnly: true, //only server an manipulate,
     };
 
     if (ifUser.token.length < 2) {
       ifUser.token.push(token);
       await ifUser.save();
+
       return res.status(200).cookie("token", token, options).json({
         success: true,
         message: "User login successfully",
@@ -103,8 +104,9 @@ const dashboardController = async (req, res) => {
       });
     } else {
       return res.status(200).json({
-        success: false,
-        message: userData,
+        success: true,
+        message: "All session fetched",
+        session: userData,
       });
     }
   } catch (err) {
