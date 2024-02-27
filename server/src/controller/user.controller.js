@@ -152,9 +152,16 @@ const deleteSessionController = async (req, res) => {
     });
   }
 };
+
+
+const imageUploadController = async (req, res) => {
+  console.log(req.files)
+  res.send("uploads");
+};
 module.exports = {
   signupController,
   signinController,
   dashboardController,
   deleteSessionController,
+  imageUploadController
 };
